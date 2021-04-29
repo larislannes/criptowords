@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  font-family: Nunito;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    background-color: #669dd3;
+    color: black;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 10px 10px;
+    font-family:'Nunito', sans-serif;
+    font-display: center;
+}
+body {
+    background: rgb(36,206,255);
+    background: -moz-radial-gradient(circle, rgba(36,206,255,1) 0%, rgba(148,233,146,1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(36,206,255,1) 0%, rgba(148,233,146,1) 100%);
+    background: radial-gradient(circle, rgba(36,206,255,1) 0%, rgba(148,233,146,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#24ceff",endColorstr="#94e992",GradientType=1);
+}
+
+.box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    width: 500px;
+    height: 500px;
+    margin: 50px auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+    
+}
+
+#resultado {
+    justify-content: center;
+    border-style:double; 
+    padding: 15px;
+
+}
+
