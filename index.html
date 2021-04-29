@@ -1,26 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Document</title>
-   <link rel="stylesheet" href="code.css" >
+
+    <title>coding decoding</title>
+    <link rel="stylesheet" href="code.css">
 </head>
 <header>
-criptografia
+    criptografia
 
 </header>
-<body>
 
-    <div class="box"> 
-<h3>Escreva o que deseja criptografar </h3>
-<input type="text" id="texto" />
-<button type="submit" onclick="encriptar(this)">encriptar </button>
-<button type="submit" onclick="desencriptar(this)">desencriptar </button>
-<h4 id="resultado"> </h4
+<body>
+<div id="box"> 
+    <div class="escolha1">
+        
+        <label for="escolher">Coloque aqui sua mensagem:</label>
+        <textarea name="" id="texto" cols="80" rows="5"></textarea>
+        <br>
+        <select id="escolhaCrip">
+            <label for="">Escolha uma opção</label>
+            <option value="selecione" disabled selected>Selecione</option>
+            <option id="cifraDeCesar" value="cifradecesar">Cifra de Cesar</option>
+            <option id="base64" value="base64">Base 64</option>
+        </select>
+        <br>
+        <div class="escolha">
+            <label for="">Escolha uma opção</label>
+            <input type="radio" name="codificar" id="codificar">
+            <label for="codificar">Codificar</label>
+            <input type="radio" name="codificar" id="decodificar">
+            <label for="decodificar">Decodificar</label>
+        </div>
+        <input type="number" id="chave">
+
+        <br>
+        <button id="enviar">Enviar</button>
+        <br>
+        <label for="escolher">Aqui está o seu resultado:</label>
+        <textarea name="" id="texto2" cols="80" rows="5"></textarea>
+        </div>
     </div>
-<script src="base64.js"> </script>
+    <script src="base64.js"> </script>
 </body>
+
 </html>
