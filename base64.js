@@ -1,48 +1,58 @@
-/* BASE64 */
-function encriptar (elemento) { 
-var palavra = document.getElementsByTagName("input")[0].value; 
-var palavraCodificada = btoa(palavra)
-document.getElementById("resultado").innerHTML = palavraCodificada;
+let escolha = document.querySelector('#base64');
+let codificar = document.querySelector('#codificar');
+let decodificar = document.querySelector('#decodificar');
+let input = document.querySelector('#texto');
+let output = document.querySelector('#texto2');
+let button = document.querySelector('#enviar');
+let chave = document.querySelector('#chave');
 
-}
-
-function desencriptar (elemento) { 
-    var palavra = document.getElementsByTagName("input")[0].value; 
-    var palavraDescodificada = atob(palavra)
-    document.getElementById("resultado").innerHTML = palavraDescodificada;
-    
-
-}
-
-/* deveria ser a cifra de cesar mas fodase */
-var values = new Array("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
-var key = +document.getElementById("key").innerHTML;
-
-function prev() {
-    if(key > 1) {
-        key--;
-        document.getElementById("key").innerHTML = key;
+button.addEventListener('click', () => {
+    if (escolha.selected && codificar.checked) {
+        output.value = btoa(input.value);
+        
     }
-}
-
-function next() {
-    if(key < 25) {
-        key++;
-        document.getElementById("key").innerHTML = key;
-    }
-}
-
-function calculate() {
-    var input = document.getElementById("input").value.toUpperCase();
-    var result = "";
-
-    for(var i = 0; i<input.length; i++){ 
-
-        var posicaoDaLetraNoAlfabeto = input.charCodeAt(i)-64; 
-        var letraComDeslocamento = (posicaoDaLetraNoAlfabeto + key) % 26; 
-        letraComDeslocamento = letraComDeslocamento == 0 ? 26 : letraComDeslocamento; 
-        result += values[letraComDeslocamento-1]; 
+    else if (escolha.selected && decodificar.checked) {
+        output.value = atob(input.value);
     }
 
-    document.getElementById("output").innerHTML = result;
-}
+    else if (!escolha.selected && codificar.checked) {
+        function cesar1(str, chave) {
+            var primeira = "";
+            for (var i = 0; i < str.length; i++) {
+                var numasc = str[i].charCodeAt();
+                if (numasc >= 97 && numasc <= 122) {
+                    if (numasc + chave > 122) {
+                        primeira += String.fromCharCode(numasc + chave - 26);
+                    }
+                    else {
+                        primeira += String.fromCharCode(numasc + chave);
+                    }
+                }
+            }
+            return primeira
+        }
+        output.value = cesar1(input.value, parseInt(chave.value))
+    }
+
+    else if (!escolha.selected && !codificar.selected) {
+               function cesar1(str, chave) {
+            var primeira = "";
+            for (var i = 0; i < str.length; i++) {
+                var numasc = str[i].charCodeAt();
+
+                if (numasc >= 97 && numasc <= 122) {
+                    if (numasc - chave < 97) {
+                        primeira += String.fromCharCode(numasc - chave + 26);
+                    }
+                    else {
+                        primeira += String.fromCharCode(numasc - chave);
+                    }
+
+                }
+            }
+            return primeira
+        }
+        output.value = cesar1(input.value, parseInt(chave.value))
+    }
+
+})
